@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CardType
+{
+    Governmental,
+    Corporate,
+    Personal
+}
+
 public class CardSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject cardPrefab;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

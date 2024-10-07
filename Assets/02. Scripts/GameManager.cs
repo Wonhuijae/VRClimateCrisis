@@ -17,11 +17,17 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager m_instance;
 
+    private float carbonAmount;
+    private int curTurn;
+    private int maxTurn = 12;
+
     private void Awake()
     {
         if(instance != null)
         {
             Destroy(gameObject);
         }
+
+        curTurn = 0;
     }
 }
