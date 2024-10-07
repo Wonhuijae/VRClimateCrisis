@@ -15,5 +15,5 @@ MonoBehaviour:
   cardName: 
   cardContent: 
   cardType: 0
-  cardColor: {r: 1, g: 1, b: 1, a: 0}
+  cardColor: {r: 1, g: 1, b: 1, a: 1}
   carbonReduce: 0
