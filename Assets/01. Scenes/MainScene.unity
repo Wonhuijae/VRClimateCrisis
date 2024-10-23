@@ -3417,7 +3417,7 @@ MonoBehaviour:
   textTurn: {fileID: 863528433}
   textCost: {fileID: 557583105}
   colors:
-  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 0.78039217, b: 0, a: 1}
   - {r: 1, g: 0.34901962, b: 0, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}

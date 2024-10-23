@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31944cb45d4bdc74fa3423e6d9e05852, type: 3}
   m_Name: CorCard
   m_EditorClassIdentifier: 
-  cardName: "\uD50C\uB77C\uC2A4\uD2F1 \uD3EC\uC7A5\uC7AC \uC904\uC774\uAE30"
-  cardContent: 
+  cardName: "\uD50C\uB77C\uC2A4\uD2F1 \uC808\uAC10"
+  cardContent: "\uD50C\uB77C\uC2A4\uD2F1 \uC0AC\uC6A9\uB7C9 \uAC10\uC18C\uB97C \uC704\uD574
+    \uC7AC\uC0DD \uAC00\uB2A5\uD55C \uC790\uC6D0\uC73C\uB85C \uC0C1\uD488 \uD3EC\uC7A5\uC7AC\uB97C
+    \uBC14\uAFC9\uB2C8\uB2E4."
   cardColor: {r: 1, g: 0.9607843, b: 0, a: 1}
-  deltaTemperature: 0
+  deltaTemperature: 0.05
   cardType: 1
-  cardCost: 0
+  cardCost: -10

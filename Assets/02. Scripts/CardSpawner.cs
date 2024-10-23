@@ -36,6 +36,8 @@ public class CardSpawner : MonoBehaviour
 
     public void DrawCards()
     {
+        if (spawnCards.Count > 0) RemoveCards();
+
         CreateCards<PerCard>(perCards, 0);
         CreateCards<CorCard>(corCards, 1);
         CreateCards<GovCard>(govCards, 2);

@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
     private static GameManager m_instance;
 
     private float carbonAmount;
-    private float deltaTempY = 1.1f;
-    private float deltaTempM = 0.16f;
+    private float deltaTempResult = 1.1f;
+    private float deltaTempSpeed = 0.16f; // 아무것도 하지 않을 경우 1달에 0.16도씩 상승
     private int _curTurn;
     public int curTurn
     {
@@ -76,6 +76,13 @@ public class GameManager : MonoBehaviour
 
     public void OnSelectCard(CardData _card)
     {
+        // 자금 확인
+        if (-_card.cardCost <= budget)
+        {
+            budget += _card.cardCost;
+        }
+        else return;
+        
         // 턴 전환
         curTurn++;
         if(curTurn > maxTurn)
@@ -91,16 +98,8 @@ public class GameManager : MonoBehaviour
             year++;
         }
 
-        // 자금 차감
-        if(_card.cardCost <=  budget)
-        {
-            budget -= _card.cardCost;
-            
-        }
-
         // 온도 변화량 계산
-        deltaTempM *= _card.deltaTemperature;
-        deltaTempY += deltaTempM;
+        deltaTempResult += deltaTempSpeed * _card.deltaTemperature;
 
         SetUI();
         // 턴 종료
@@ -113,12 +112,13 @@ public class GameManager : MonoBehaviour
         textTurn.text = year + "/" + month;
 
         string deltaTemp = "";
-        if (deltaTempY > 0) deltaTemp = "+";
-        deltaTemp += deltaTempY + "°C";
+        if (deltaTempResult > 0) deltaTemp = "+";
+        deltaTemp += deltaTempResult.ToString("F3") + "°C";
         textDeltaTempY.text = deltaTemp;
 
-        int colorIdx = (int)deltaTempY;
-        if (colorIdx > colors.Length - 1) colorIdx = colors.Length - 1; 
+        int colorIdx = (int)deltaTempResult;
+        if (colorIdx > colors.Length - 1) colorIdx = colors.Length - 1;
+        else if (colorIdx < 0) colorIdx = 0;
         map.color = colors[colorIdx];
     }
 

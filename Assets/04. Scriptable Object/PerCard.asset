@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7d232c89c81294284cf3b26ce19072, type: 3}
   m_Name: PerCard
   m_EditorClassIdentifier: 
-  cardName: 
-  cardContent: 
+  cardName: "\uB300\uC911\uAD50\uD1B5 \uC7A5\uB824"
+  cardContent: "\uC790\uAC00\uC6A9 \uC774\uC6A9\uC744 \uC9C0\uC591\uD558\uACE0, \uB300\uC911\uAD50\uD1B5
+    \uC774\uC6A9\uC744 \uC7A5\uB824\uD558\uAE30 \uC704\uD55C \uCEA0\uD398\uC778\uC744
+    \uC2DC\uD589\uD569\uB2C8\uB2E4."
   cardColor: {r: 1, g: 1, b: 1, a: 1}
-  deltaTemperature: -0.01
+  deltaTemperature: 0.05
   cardType: 2
-  cardCost: 0
+  cardCost: -50

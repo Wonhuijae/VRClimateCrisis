@@ -31,7 +31,7 @@ public class Card : MonoBehaviour
 
         if (card != null)
         {
-            textName.text = card.name;
+            textName.text = card.cardName;
             textContent.text = card.cardContent;
             textType.text = gmInstance.GetType(card.cardType);
             cardImage.color = card.cardColor;

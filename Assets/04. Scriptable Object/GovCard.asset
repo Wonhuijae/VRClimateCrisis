@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0eb0914032329a4eaee7470cc0b6d7b, type: 3}
   m_Name: GovCard
   m_EditorClassIdentifier: 
-  cardName: 
-  cardContent: 
+  cardName: "\uC5D0\uB108\uC9C0 \uC804\uD658"
+  cardContent: "\uD654\uC11D\uC5F0\uB8CC \uC0AC\uC6A9 \uC808\uAC10\uC744 \uC704\uD574
+    \uD654\uB825 \uBC1C\uC804\uC18C\uB97C \uB300\uD3ED \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   cardColor: {r: 1, g: 0.58431375, b: 0, a: 1}
-  deltaTemperature: 100
+  deltaTemperature: 0.3
   cardType: 0
-  cardCost: 0
+  cardCost: -500
