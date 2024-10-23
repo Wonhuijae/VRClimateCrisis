@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI textDeltaTempY;
     public TextMeshProUGUI textTurn;
     public TextMeshProUGUI textCost;
+
+    public Color[] colors;
+    public Image map;
 
     public static GameManager instance
     {
@@ -56,8 +60,7 @@ public class GameManager : MonoBehaviour
         }
 
         curTurn = 1;
-        textDeltaTempY.text = "+" + deltaTempY + "°C";
-        textCost.text = "자금: " + budget.ToString("N0");
+        SetUI();
 
         cardTypes = new Dictionary<CardType, string>(){
                                                         { CardType.Personal, "개인" },
@@ -66,9 +69,21 @@ public class GameManager : MonoBehaviour
                                                     };
     }
 
+    void GameEnd()
+    {
+
+    }
+
     public void OnSelectCard(CardData _card)
     {
+        // 턴 전환
         curTurn++;
+        if(curTurn > maxTurn)
+        {
+            GameEnd();
+            return;
+        }
+
         month = curTurn % 13;
         if (month == 0)
         {
@@ -76,25 +91,35 @@ public class GameManager : MonoBehaviour
             year++;
         }
 
-        deltaTempM *= _card.deltaTemperature;
-        deltaTempY += deltaTempM;
-
+        // 자금 차감
         if(_card.cardCost <=  budget)
         {
             budget -= _card.cardCost;
-            textCost.text = "자금: " + budget.ToString("N0");
+            
         }
 
-        string deltaTemp = "";
+        // 온도 변화량 계산
+        deltaTempM *= _card.deltaTemperature;
+        deltaTempY += deltaTempM;
 
-        if (deltaTempY > 0) deltaTemp = "+";
+        SetUI();
+        // 턴 종료
+        OnCardSelected();
+    }
 
-        deltaTemp += deltaTempY + "°C";
-
-        textDeltaTempY.text = deltaTemp;
+    void SetUI()
+    {
+        textCost.text = "자금: " + budget.ToString("N0");
         textTurn.text = year + "/" + month;
 
-        OnCardSelected();
+        string deltaTemp = "";
+        if (deltaTempY > 0) deltaTemp = "+";
+        deltaTemp += deltaTempY + "°C";
+        textDeltaTempY.text = deltaTemp;
+
+        int colorIdx = (int)deltaTempY;
+        if (colorIdx > colors.Length - 1) colorIdx = colors.Length - 1; 
+        map.color = colors[colorIdx];
     }
 
     public string GetType(CardType _cardType)
