@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textTurn;
     public TextMeshProUGUI textCost;
 
-    public Color[] colors;
+    public Color[] mapColors;
     public Image map;
 
     public static GameManager instance
@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager m_instance;
 
-    private float carbonAmount;
     private float deltaTempResult = 1.1f;
     private float deltaTempSpeed = 0.16f; // 아무것도 하지 않을 경우 1달에 0.16도씩 상승
     private int _curTurn;
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
     }
     private int maxTurn = 48;
 
-    private int budget = 500;
+    private int budget = 5000;
 
     int year = 2020;
     int month = 1;
@@ -117,9 +116,9 @@ public class GameManager : MonoBehaviour
         textDeltaTempY.text = deltaTemp;
 
         int colorIdx = (int)deltaTempResult;
-        if (colorIdx > colors.Length - 1) colorIdx = colors.Length - 1;
+        if (colorIdx > mapColors.Length - 1) colorIdx = mapColors.Length - 1;
         else if (colorIdx < 0) colorIdx = 0;
-        map.color = colors[colorIdx];
+        map.color = mapColors[colorIdx];
     }
 
     public string GetType(CardType _cardType)

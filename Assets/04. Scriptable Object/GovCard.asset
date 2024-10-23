@@ -18,4 +18,4 @@ MonoBehaviour:
   cardColor: {r: 1, g: 0.58431375, b: 0, a: 1}
   deltaTemperature: 0.3
   cardType: 0
-  cardCost: -500
+  cardCost: -300
