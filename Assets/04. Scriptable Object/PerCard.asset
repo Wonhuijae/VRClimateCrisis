@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 
   cardContent: 
-  cardColor: {r: 0, g: 0, b: 0, a: 1}
+  cardColor: {r: 1, g: 1, b: 1, a: 1}
   deltaTemperature: 0
   cardType: 2
   cardCost: 0

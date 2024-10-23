@@ -8,7 +8,7 @@ public class PerCard : CardData
 {
     public PerCard()
     {
-        cardColor = new Color(0, 0, 0, 1);
+        cardColor = new Color(1, 1, 1, 1);
         cardType = CardType.Personal;
     }
 }

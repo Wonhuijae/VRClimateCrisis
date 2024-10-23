@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.116, y: -0.002000004}
+  m_AnchoredPosition: {x: 0.14, y: -0.002000004}
   m_SizeDelta: {x: 0.19999999, y: 0.19999999}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3454038166799004294
@@ -381,7 +381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.19897461, y: 1.4629974}
+  m_AnchoredPosition: {x: 0.19897461, y: 1.4630127}
   m_SizeDelta: {x: 1.6, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4670584417279748429
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4544643212556415746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07778a81347c1d4b972ef5b494abc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardImage: {fileID: 1538368661159455010}
   textName: {fileID: 1454068828158451565}
   textContent: {fileID: 1565097647126587515}
   textType: {fileID: 71404435030879237}

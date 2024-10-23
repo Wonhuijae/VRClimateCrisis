@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -20,15 +21,48 @@ public class CardSpawner : MonoBehaviour
 
     public Transform[] spawnPos;
 
+    List<GameObject> spawnCards;
+
+    GameManager gmInstance;
+
     private void Start()
     {
-        DrawCards();
+        spawnCards= new List<GameObject>();
+
+        gmInstance = GameManager.instance;
+
+        if (gmInstance != null) gmInstance.OnCardSelected += RemoveCards;
     }
 
     public void DrawCards()
     {
-        Instantiate(cardPrefab, spawnPos[0].position, Quaternion.identity).GetComponent<Card>().SetCard(perCards[0]);
-        Instantiate(cardPrefab, spawnPos[1].position, Quaternion.identity).GetComponent<Card>().SetCard(corCards[0]);
-        Instantiate(cardPrefab, spawnPos[2].position, Quaternion.identity).GetComponent<Card>().SetCard(govCards[0]);
+        CreateCards<PerCard>(perCards, 0);
+        CreateCards<CorCard>(corCards, 1);
+        CreateCards<GovCard>(govCards, 2);
+    }
+
+    public void RemoveCards()
+    {
+        foreach(GameObject o in spawnCards)
+        {
+            Destroy(o);
+        }
+
+        spawnCards.Clear();
+    }
+
+    public void CreateCards<T>(T[] cardsGroup, int posIdx)
+    {
+        int idx = Random.Range(0, cardsGroup.Length);
+
+        GameObject o = Instantiate(cardPrefab, spawnPos[posIdx].position, Quaternion.identity);
+
+        if (cardsGroup[idx] is CardData)
+        {
+            CardData c = cardsGroup[idx] as CardData;
+            o.GetComponent<Card>().SetCard(c);
+        }
+
+        spawnCards.Add(o);
     }
 }

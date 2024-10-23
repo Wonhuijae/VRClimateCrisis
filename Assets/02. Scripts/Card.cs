@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
+    public Image cardImage;
     public TextMeshProUGUI textName;
     public TextMeshProUGUI textContent;
     public TextMeshProUGUI textType;
@@ -13,10 +14,12 @@ public class Card : MonoBehaviour
     CardData card;
 
     GameManager gmInstance;
+
     private void Awake()
     {
         gmInstance = GameManager.instance;
     }
+
     private void Start()
     {
         GetComponentInChildren<Button>().onClick.AddListener(() => gmInstance.OnSelectCard(card));
@@ -30,7 +33,8 @@ public class Card : MonoBehaviour
         {
             textName.text = card.name;
             textContent.text = card.cardContent;
-            textType.text = card.cardType.ToString();
+            textType.text = gmInstance.GetType(card.cardType);
+            cardImage.color = card.cardColor;
         }
     }
 }

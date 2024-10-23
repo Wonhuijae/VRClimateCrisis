@@ -13,6 +13,3 @@ public class CardData : ScriptableObject
     [SerializeField] public CardType cardType;
     [SerializeField] public int cardCost;
 }
-
-
-

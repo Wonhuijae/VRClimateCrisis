@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31944cb45d4bdc74fa3423e6d9e05852, type: 3}
   m_Name: CorCard
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: "\uD50C\uB77C\uC2A4\uD2F1 \uD3EC\uC7A5\uC7AC \uC904\uC774\uAE30"
   cardContent: 
   cardColor: {r: 1, g: 0.9607843, b: 0, a: 1}
   deltaTemperature: 0
