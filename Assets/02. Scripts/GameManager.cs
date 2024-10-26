@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -12,7 +13,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textCost;
 
     public Color[] mapColors;
+    public Color[] globeColors;
+    public Material[] globeMeshColors;
     public Image map;
+
+    public MeshRenderer globe;
+    public Light pointLight;
 
     AudioSource audioSource;
     public AudioClip selectClip;
@@ -61,6 +67,8 @@ public class GameManager : MonoBehaviour
     private CardSpawner CardSpawner;
 
     public event Action OnCardSelected;
+    public event Action<int> OnTurnEnd;
+
 
     private void Awake()
     {
@@ -80,11 +88,13 @@ public class GameManager : MonoBehaviour
                                                         { CardType.Corporate, "기업" },
                                                         { CardType.Governmental, "정부"}
                                                     };
+
     }
 
     void GameEnd()
     {
-
+        if (deltaTempResult > 1f) SceneManager.LoadScene("GameoverScene");
+        else SceneManager.LoadScene("ClearScene");
     }
 
     public void OnSelectCard(CardData _card)
@@ -118,12 +128,11 @@ public class GameManager : MonoBehaviour
 
         SetUI();
         // 턴 종료
-        OnCardSelected();
-    }
 
-    void PlayNews()
-    {
-        audioSource.Play();
+        if (deltaTempResult > 5) GameEnd();
+
+        OnCardSelected();
+        OnTurnEnd((int)deltaTempResult);
     }
 
     void SetUI()
@@ -140,6 +149,9 @@ public class GameManager : MonoBehaviour
         if (colorIdx > mapColors.Length - 1) colorIdx = mapColors.Length - 1;
         else if (colorIdx < 0) colorIdx = 0;
         map.color = mapColors[colorIdx];
+        globe.material = globeMeshColors[colorIdx];
+        pointLight.color = globeColors[colorIdx];
+        
     }
 
     public string GetType(CardType _cardType)

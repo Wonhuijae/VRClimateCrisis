@@ -61,8 +61,6 @@ public class CardSpawner : MonoBehaviour
 
     public void CreateCards<T>(T[] cardsGroup, int posIdx)
     {
-        Debug.Log(gmInstance.budget);
-
         int idx = Random.Range(0, cardsGroup.Length);
 
         GameObject o = Instantiate(cardPrefab, spawnPos[posIdx].position, Quaternion.identity);
