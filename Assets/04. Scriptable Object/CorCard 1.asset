@@ -16,6 +16,6 @@ MonoBehaviour:
   cardContent: "\uBCBC\uB18D\uC0AC\uB294 \uD0C4\uC18C \uBC30\uCD9C\uB7C9\uC774 \uB192\uC2B5\uB2C8\uB2E4.
     \uAE30\uC628 \uC0C1\uC2B9\uC774 \uAC00\uC18D\uD569\uB2C8\uB2E4."
   cardColor: {r: 1, g: 0.9607843, b: 0, a: 1}
-  deltaTemperature: 1.2
+  deltaTemperature: 0.8
   cardType: 1
-  cardCost: 20
+  cardCost: 500

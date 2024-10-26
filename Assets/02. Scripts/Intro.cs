@@ -7,12 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour
 {
+    public string nextSceneName;
+
     public TextMeshProUGUI introText;
     public string[] scripts;
     int idx = 0;
 
     public GameObject lodingIcon;
     public GameObject introPanel;
+
+    public GameObject OutBtns;
 
     AudioSource audioSource;
 
@@ -30,10 +34,20 @@ public class Intro : MonoBehaviour
     {
         if (idx >= scripts.Length)
         {
-            lodingIcon.SetActive(true);
             introPanel.SetActive(false);
-            GetComponent<SceneLoader>().LoadScene("MainScene");
-            return;
+
+            if (nextSceneName == "MainScene")
+            {
+                lodingIcon.SetActive(true);
+                
+                GetComponent<SceneLoader>().LoadScene(nextSceneName);
+                return;
+            }
+            else
+            {
+                OutBtns.SetActive(true);
+                return;
+            }
         }
         
         introText.text = "";

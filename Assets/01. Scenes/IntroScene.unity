@@ -1589,6 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e66154351bbb10544b5afcc9685402e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSceneName: MainScene
   introText: {fileID: 1335097569}
   scripts:
   - "\uC548\uB155\uD558\uC2ED\uB2C8\uAE4C?"
@@ -1609,6 +1610,7 @@ MonoBehaviour:
   - "\uD589\uC6B4\uC744 \uBE55\uB2C8\uB2E4."
   lodingIcon: {fileID: 909730309}
   introPanel: {fileID: 793422026}
+  OutBtns: {fileID: 1317902456}
 --- !u!4 &1971729007
 Transform:
   m_ObjectHideFlags: 0

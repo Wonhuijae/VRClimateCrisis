@@ -12,6 +12,16 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneProgress(_sceneName));   
     }
 
+    public void LoadSceneimmediately(string _sceneName)
+    {
+        SceneManager.LoadScene(_sceneName);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     IEnumerator LoadSceneProgress(string _sceneName)
     {
         AsyncOperation loading = SceneManager.LoadSceneAsync(_sceneName);

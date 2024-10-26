@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public enum CardType
@@ -20,6 +21,9 @@ public class CardSpawner : MonoBehaviour
     public GovCard[] govCards; // 정부
 
     public Transform[] spawnPos;
+    
+    AudioSource audioSource;
+    public AudioClip spawnClip;
 
     List<GameObject> spawnCards;
 
@@ -30,6 +34,7 @@ public class CardSpawner : MonoBehaviour
         spawnCards= new List<GameObject>();
 
         gmInstance = GameManager.instance;
+        audioSource = GetComponent<AudioSource>();
 
         if (gmInstance != null) gmInstance.OnCardSelected += RemoveCards;
     }
@@ -38,6 +43,7 @@ public class CardSpawner : MonoBehaviour
     {
         if (spawnCards.Count > 0) RemoveCards();
 
+        audioSource.PlayOneShot(spawnClip);
         CreateCards<PerCard>(perCards, 0);
         CreateCards<CorCard>(corCards, 1);
         CreateCards<GovCard>(govCards, 2);
@@ -55,13 +61,16 @@ public class CardSpawner : MonoBehaviour
 
     public void CreateCards<T>(T[] cardsGroup, int posIdx)
     {
+        Debug.Log(gmInstance.budget);
+
         int idx = Random.Range(0, cardsGroup.Length);
 
         GameObject o = Instantiate(cardPrefab, spawnPos[posIdx].position, Quaternion.identity);
+        CardData c = cardsGroup[idx] as CardData;
 
-        if (cardsGroup[idx] is CardData)
+        if (c != null)
         {
-            CardData c = cardsGroup[idx] as CardData;
+            if (gmInstance.budget < -c.cardCost) o.GetComponentInChildren<Button>().interactable = false;
             o.GetComponent<Card>().SetCard(c);
         }
 

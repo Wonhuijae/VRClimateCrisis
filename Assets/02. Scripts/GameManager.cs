@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public Color[] mapColors;
     public Image map;
 
+    AudioSource audioSource;
+    public AudioClip selectClip;
+    
     public static GameManager instance
     {
         get
@@ -40,7 +43,15 @@ public class GameManager : MonoBehaviour
     }
     private int maxTurn = 48;
 
-    private int budget = 5000;
+    private int _budget;
+    public int budget
+    {
+        get { return _budget; }
+        set
+        {
+            _budget = value;
+        }
+    }
 
     int year = 2020;
     int month = 1;
@@ -58,7 +69,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        audioSource = GetComponent<AudioSource>();
+
         curTurn = 1;
+        budget = 5000;
         SetUI();
 
         cardTypes = new Dictionary<CardType, string>(){
@@ -81,7 +95,9 @@ public class GameManager : MonoBehaviour
             budget += _card.cardCost;
         }
         else return;
-        
+
+        audioSource.PlayOneShot(selectClip);
+
         // 턴 전환
         curTurn++;
         if(curTurn > maxTurn)
@@ -103,6 +119,11 @@ public class GameManager : MonoBehaviour
         SetUI();
         // 턴 종료
         OnCardSelected();
+    }
+
+    void PlayNews()
+    {
+        audioSource.Play();
     }
 
     void SetUI()
