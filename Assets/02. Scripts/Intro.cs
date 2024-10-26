@@ -9,21 +9,42 @@ public class Intro : MonoBehaviour
 {
     public TextMeshProUGUI introText;
     public string[] scripts;
-    public int idx = 0;
+    int idx = 0;
+
+    public GameObject lodingIcon;
+    public GameObject introPanel;
+
+    AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
-        PlayText();   
+        PlayText();
     }
 
     public void PlayText()
     {
         if (idx >= scripts.Length)
         {
-            SceneManager.LoadScene("MainScene");
+            lodingIcon.SetActive(true);
+            introPanel.SetActive(false);
+            GetComponent<SceneLoader>().LoadScene("MainScene");
             return;
         }
+        
         introText.text = "";
+        DOTween.Kill(introText);
         introText.DOText(scripts[idx++], 3f);
+        audioSource.Play();
+        Invoke("StopAudio", 3f);
+    }
+
+    void StopAudio()
+    {
+        audioSource.Stop();
     }
 }
