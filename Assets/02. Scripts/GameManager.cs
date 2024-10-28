@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI textTurn;
     public TextMeshProUGUI textCost;
 
+    public GameObject BTN_Select;
+    public GameObject BTN_ReSelect;
+
     public Color[] mapColors;
     public Color[] globeColors;
     public Material[] globeMeshColors;
@@ -85,9 +88,11 @@ public class GameManager : MonoBehaviour
 
         cardTypes = new Dictionary<CardType, string>(){
                                                         { CardType.Personal, "개인" },
-                                                        { CardType.Corporate, "기업" },
+                                                        { CardType.Corporate, "산업" },
                                                         { CardType.Governmental, "정부"}
                                                     };
+
+        OnCardSelected += SwitchButton;
 
     }
 
@@ -95,6 +100,12 @@ public class GameManager : MonoBehaviour
     {
         if (deltaTempResult > 1f) SceneManager.LoadScene("GameoverScene");
         else SceneManager.LoadScene("ClearScene");
+    }
+
+    void SwitchButton()
+    {
+        BTN_Select.SetActive(true);
+        BTN_ReSelect.SetActive(false);
     }
 
     public void OnSelectCard(CardData _card)
@@ -137,7 +148,7 @@ public class GameManager : MonoBehaviour
 
     void SetUI()
     {
-        textCost.text = "자금: " + budget.ToString("N0");
+        textCost.text = "예산: " + budget.ToString("N0");
         textTurn.text = year + "/" + month;
 
         string deltaTemp = "";
@@ -148,6 +159,8 @@ public class GameManager : MonoBehaviour
         int colorIdx = (int)deltaTempResult;
         if (colorIdx > mapColors.Length - 1) colorIdx = mapColors.Length - 1;
         else if (colorIdx < 0) colorIdx = 0;
+
+        // 화면 변화
         map.color = mapColors[colorIdx];
         globe.material = globeMeshColors[colorIdx];
         pointLight.color = globeColors[colorIdx];

@@ -16,9 +16,9 @@ public class CardSpawner : MonoBehaviour
 {
     public GameObject cardPrefab;
 
-    public PerCard[] perCards; // 개인
-    public CorCard[] corCards; // 기업
-    public GovCard[] govCards; // 정부
+    List<PerCard> perCards = new(); // 개인
+    List<CorCard> corCards = new(); // 기업
+    List<GovCard> govCards = new(); // 정부
 
     public Transform[] spawnPos;
     
@@ -37,6 +37,10 @@ public class CardSpawner : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         if (gmInstance != null) gmInstance.OnCardSelected += RemoveCards;
+
+        InitCards<PerCard>(perCards, "Per");
+        InitCards<CorCard>(corCards, "Cor");
+        InitCards<GovCard>(govCards, "Gov");
     }
 
     public void DrawCards()
@@ -59,9 +63,9 @@ public class CardSpawner : MonoBehaviour
         spawnCards.Clear();
     }
 
-    public void CreateCards<T>(T[] cardsGroup, int posIdx)
+    public void CreateCards<T>(List<T> cardsGroup, int posIdx)
     {
-        int idx = Random.Range(0, cardsGroup.Length);
+        int idx = Random.Range(0, cardsGroup.Count);
 
         GameObject o = Instantiate(cardPrefab, spawnPos[posIdx].position, Quaternion.identity);
         CardData c = cardsGroup[idx] as CardData;
@@ -73,5 +77,18 @@ public class CardSpawner : MonoBehaviour
         }
 
         spawnCards.Add(o);
+    }
+
+    // 리소스 폴더에서 데이터 불러와서 초기화
+    // UnityEngine.Object를 상속받은 경우에만 사용하도록 제한
+    void InitCards<T>(List<T> cardGroup, string path) where T : UnityEngine.Object
+    {
+        T[] cards = Resources.LoadAll<T>("Scriptable Object/" + path);
+        foreach (var c in cards)
+        {
+            cardGroup.Add(c);
+
+            Debug.Log(c.name);
+        }
     }
 }
