@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject BTN_Select;
     public GameObject BTN_ReSelect;
+    public GameObject shoartagePopup;
 
     public Color[] mapColors;
     public Color[] globeColors;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip selectClip;
-    
+ 
     public static GameManager instance
     {
         get
@@ -115,7 +116,11 @@ public class GameManager : MonoBehaviour
         {
             budget += _card.cardCost;
         }
-        else return;
+        else
+        {
+            ShortagePopupOn();
+            return;
+        }
 
         audioSource.PlayOneShot(selectClip);
 
@@ -177,5 +182,10 @@ public class GameManager : MonoBehaviour
     public string GetType(CardType _cardType)
     {
         return cardTypes[_cardType];
+    }
+
+    public void ShortagePopupOn()
+    {
+        shoartagePopup.SetActive(true);
     }
 }

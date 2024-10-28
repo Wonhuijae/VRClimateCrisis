@@ -72,7 +72,6 @@ public class CardSpawner : MonoBehaviour
 
         if (c != null)
         {
-            if (gmInstance.budget < -c.cardCost) o.GetComponentInChildren<Button>().interactable = false;
             o.GetComponent<Card>().SetCard(c);
         }
 
