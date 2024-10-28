@@ -10,6 +10,8 @@ public class Card : MonoBehaviour
     public TextMeshProUGUI textName;
     public TextMeshProUGUI textContent;
     public TextMeshProUGUI textType;
+    public TextMeshProUGUI textCost;
+    public TextMeshProUGUI textDeltaT;
 
     CardData card;
 
@@ -35,6 +37,40 @@ public class Card : MonoBehaviour
             textContent.text = card.cardContent;
             textType.text = gmInstance.GetType(card.cardType);
             cardImage.color = card.cardColor;
+
+            int dB = card.cardCost;
+            if (dB > 0)
+            {
+                textCost.color = Color.red;
+                textCost.text += "+";
+            }
+            else if (dB < 0)
+            {
+                textCost.color = Color.blue;
+            }
+            else
+            {
+                textCost.color = Color.white;
+            }
+
+            textCost.text +=  dB.ToString("N0");
+
+            float dT = card.deltaTemperature * 0.16f;
+            if (dT < 0)
+            {
+                textDeltaT.color = Color.red;
+            }
+            else if (dT > 0)
+            {
+                textDeltaT.color = Color.blue;
+                textDeltaT.text += "+";
+            }
+            else
+            {
+                textDeltaT.color = Color.white;
+            }
+
+            textDeltaT.text += dT.ToString("F3") + "¡ÆC";
         }
     }
 }
