@@ -143,7 +143,14 @@ public class GameManager : MonoBehaviour
         if (deltaTempResult > 5) GameEnd();
 
         OnCardSelected();
-        OnTurnEnd((int)deltaTempResult);
+
+        int newsIdx = (int)deltaTempResult;
+
+        // idx 범위: 0 ~ 5
+        if (newsIdx < 0) newsIdx = 0;
+        else if (newsIdx > 4) newsIdx = 4;
+
+        OnTurnEnd(newsIdx);
     }
 
     void SetUI()
