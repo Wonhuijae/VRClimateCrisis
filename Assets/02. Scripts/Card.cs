@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -39,39 +39,26 @@ public class Card : MonoBehaviour
             textType.text = gmInstance.GetType(card.cardType);
             cardImage.color = card.cardColor;
 
+            // 예산 변화량
             int dB = card.cardCost;
-            if (dB > 0)
-            {
-                textCost.color = Color.red;
-                textCost.text += "+";
-            }
-            else if (dB < 0)
-            {
-                textCost.color = Color.blue;
-            }
-            else
-            {
-                textCost.color = Color.white;
-            }
-
+            SetText(textCost, dB);
             textCost.text +=  dB.ToString("N0");
 
+            // 기온 변화량
             float dT = card.deltaTemperature * 0.16f;
-            if (dT < 0)
-            {
-                textDeltaT.color = Color.red;
-            }
-            else if (dT > 0)
-            {
-                textDeltaT.color = Color.blue;
-                textDeltaT.text += "+";
-            }
-            else
-            {
-                textDeltaT.color = Color.white;
-            }
+            SetText(textDeltaT, dT);
+            textDeltaT.text += dT.ToString("0.###") + "°C";
+        }
+    }
 
-            textDeltaT.text += dT.ToString("0.###") + "��C";
+    void SetText(TextMeshProUGUI _text, float _value)
+    {
+        if (_value == 0) _text.color = Color.white;
+        else if (_value < 0) _text.color = Color.yellow;
+        else
+        {
+            _text.color = Color.green;
+            _text.text += "+";
         }
     }
 }
