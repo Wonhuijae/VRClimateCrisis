@@ -17,6 +17,6 @@ MonoBehaviour:
     \uC7AC\uC0DD \uAC00\uB2A5\uD55C \uC790\uC6D0\uC73C\uB85C \uC0C1\uD488 \uD3EC\uC7A5\uC7AC\uB97C
     \uBC14\uAFC9\uB2C8\uB2E4."
   cardColor: {r: 1, g: 0.9607843, b: 0, a: 1}
-  deltaTemperature: -5
+  deltaTemperature: -3
   cardType: 1
-  cardCost: -1000
+  cardCost: -200

@@ -94,7 +94,6 @@ public class GameManager : MonoBehaviour
                                                     };
 
         OnCardSelected += SwitchButton;
-
     }
 
     void GameEnd()
@@ -165,7 +164,7 @@ public class GameManager : MonoBehaviour
 
         string deltaTemp = "";
         if (deltaTempResult > 0) deltaTemp = "+";
-        deltaTemp += deltaTempResult.ToString("F3") + "°C";
+        deltaTemp += deltaTempResult.ToString("0.###") + "°C";
         textDeltaTempY.text = deltaTemp;
 
         int colorIdx = (int)deltaTempResult;

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31944cb45d4bdc74fa3423e6d9e05852, type: 3}
+  m_Name: CorCard 6
+  m_EditorClassIdentifier: 
+  cardName: "\uD3EC\uC9D1 \uAE30\uC220 \uAC1C\uBC1C"
+  cardContent: "\uC81C\uD488 \uC0DD\uC0B0\uACFC\uC815\uC5D0\uC11C \uC9C1\uC811\uC801\uC73C\uB85C
+    \uD0C4\uC18C\uB97C \uD3EC\uC9D1\uD558\uB294 \uAE30\uC220\uC744 \uAC1C\uBC1C\uD558\uC5EC
+    \uC9C1\uC811\uC801\uC778 \uD0C4\uC18C \uAC10\uCD95 \uD6A8\uACFC\uB97C \uAE30\uB300\uD560
+    \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  cardColor: {r: 1, g: 0.9607843, b: 0, a: 1}
+  deltaTemperature: -3
+  cardType: 1
+  cardCost: -500

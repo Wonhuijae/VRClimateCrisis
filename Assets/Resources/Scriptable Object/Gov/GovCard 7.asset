@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0eb0914032329a4eaee7470cc0b6d7b, type: 3}
+  m_Name: GovCard 7
+  m_EditorClassIdentifier: 
+  cardName: "\uCE5C\uD658\uACBD \uCC28 \uD655\uB300"
+  cardContent: "\uC804\uAE30\uCC28, \uD558\uC774\uBE0C\uB9AC\uB4DC\uCC28 \uB4F1 \uD654\uC11D\uC5F0\uB8CC\uB97C
+    \uC774\uC6A9\uD558\uC9C0 \uC54A\uB294 \uCC28\uB7C9\uC744 \uB110\uB9AC \uD655\uB300\uD569\uB2C8\uB2E4."
+  cardColor: {r: 1, g: 0.58431375, b: 0, a: 1}
+  deltaTemperature: -7
+  cardType: 0
+  cardCost: -1000

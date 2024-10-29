@@ -71,7 +71,7 @@ public class Card : MonoBehaviour
                 textDeltaT.color = Color.white;
             }
 
-            textDeltaT.text += dT.ToString("F3") + "¡ÆC";
+            textDeltaT.text += dT.ToString("0.###") + "¡ÆC";
         }
     }
 }
