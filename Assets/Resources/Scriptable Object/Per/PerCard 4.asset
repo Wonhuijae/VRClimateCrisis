@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7d232c89c81294284cf3b26ce19072, type: 3}
+  m_Name: PerCard 4
+  m_EditorClassIdentifier: 
+  cardName: "\uC0DD\uD65C \uC18D \uC808\uC218"
+  cardContent: "15\uBD84\uC758 \uC0E4\uC6CC\uB294 \uBB3C 180\uB9AC\uD130\uB97C \uC18C\uBE44\uD569\uB2C8\uB2E4. 
+    \uC0E4\uC6CC \uC2DC\uAC04 \uC904\uC774\uAE30, \uC591\uCE58\uCEF5 \uC0AC\uC6A9
+    \uB4F1 \uC0DD\uD65C \uC18D\uC5D0\uC11C \uC808\uC218\uD558\uB294 \uBC29\uBC95\uC744
+    \uC548\uB0B4\uD569\uB2C8\uB2E4."
+  cardColor: {r: 1, g: 1, b: 1, a: 1}
+  deltaTemperature: -0.5
+  cardType: 2
+  cardCost: -80
