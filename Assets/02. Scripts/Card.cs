@@ -42,23 +42,22 @@ public class Card : MonoBehaviour
             // 예산 변화량
             int dB = card.cardCost;
             SetText(textCost, dB);
-            textCost.text +=  dB.ToString("N0");
+            textCost.text +=  dB.ToString("+#,0;-#,0");
 
             // 기온 변화량
             float dT = card.deltaTemperature * 0.16f;
-            SetText(textDeltaT, dT);
-            textDeltaT.text += dT.ToString("0.###") + "°C";
+            SetText(textDeltaT, -dT);
+            textDeltaT.text += dT.ToString("+0.###;-0.###") + "°C";
         }
     }
 
     void SetText(TextMeshProUGUI _text, float _value)
     {
         if (_value == 0) _text.color = Color.white;
-        else if (_value < 0) _text.color = Color.yellow;
+        else if (_value < 0) _text.color = Color.magenta;
         else
         {
             _text.color = Color.green;
-            _text.text += "+";
         }
     }
 }

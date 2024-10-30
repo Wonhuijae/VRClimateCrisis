@@ -163,8 +163,7 @@ public class GameManager : MonoBehaviour
         textTurn.text = year + "/" + month;
 
         string deltaTemp = "";
-        if (deltaTempResult > 0) deltaTemp = "+";
-        deltaTemp += deltaTempResult.ToString("0.###") + "°C";
+        deltaTemp += deltaTempResult.ToString("+0.###;-0.###") + "°C";
         textDeltaTempY.text = deltaTemp;
 
         int colorIdx = (int)deltaTempResult;
